@@ -1,0 +1,48 @@
+% Tabellenverzeichnis und Abbildungsverzeichnis anpassen
+
+% Anpassungen für Abbildungsverzeichnis
+\chapter*{Abbildungsverzeichnis}
+\thispagestyle{empty}
+\pagestyle{empty} % Entfernt Seitenzahlen auf den Verzeichnisseiten
+
+% Redefiniere \listoffigures, um den vertikalen Raum zu entfernen
+\makeatletter
+\renewcommand{\listoffigures}{%
+  \begingroup % Änderungen lokal begrenzen
+  \parskip=0pt % Kein zusätzlicher Abstand zwischen Absätzen
+  \parindent=0pt % Kein Einzug
+  \@starttoc{lof} % Start des Abbildungsverzeichnisses ohne zusätzlichen Titelraum
+  \endgroup
+}
+\makeatother
+
+% Manuelles Hinzufügen des Abbildungsverzeichnisses ohne Farbänderungen
+\vspace{-\baselineskip} % Reduziert den vertikalen Abstand
+\listoffigures
+
+\newpage % Neue Seite beginnen
+
+% Anpassungen für Tabellenverzeichnis
+\chapter*{Tabellenverzeichnis}
+\thispagestyle{empty}
+\pagestyle{empty} % Entfernt Seitenzahlen auf den Verzeichnisseiten
+
+% Redefiniere \listoftables, um den vertikalen Raum zu entfernen
+\makeatletter
+\renewcommand{\listoftables}{%
+  \begingroup % Änderungen lokal begrenzen
+  \parskip=0pt % Kein zusätzlicher Abstand zwischen Absätzen
+  \parindent=0pt % Kein Einzug
+  \@starttoc{lot} % Start des Tabellenverzeichnisses ohne zusätzlichen Titelraum
+  \endgroup
+}
+\makeatother
+
+% Manuelles Hinzufügen des Tabellenverzeichnisses ohne Farbänderungen
+\vspace{-\baselineskip} % Reduziert den vertikalen Abstand
+\listoftables
+
+\newpage % Neue Seite beginnen
+
+% Seitenstil für nachfolgende Seiten wiederherstellen
+\pagestyle{scrheadings}

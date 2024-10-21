@@ -1,0 +1,67 @@
+% Use Roman numerals for parts
+\renewcommand{\thepart}{\Roman{part}}
+
+\makeatletter
+\renewcommand\part{\if@openright\cleardoublepage\else\clearpage\fi
+  \thispagestyle{empty}%
+  \null\vfil
+  \secdef\@part\@spart}
+\def\@part[#1]#2{%
+    \refstepcounter{part}%
+    \addcontentsline{toc}{part}{\thepart\hspace{1em}#1}% Include Roman numerals in the TOC
+    {\centering
+    \interlinepenalty \@M
+    \normalfont\Huge \textcolor{black}{Teil \thepart}\par
+    \vskip 20\p@
+    \normalfont\Huge \textcolor{myred}{#2}\par}%
+    \vfil\newpage}
+\def\@spart#1{%
+    {\centering
+    \interlinepenalty \@M
+    \normalfont\Huge \textcolor{myred}{#1}\par}%
+    \vfil\newpage}
+\makeatother
+
+% Customize the chapter heading style
+\makeatletter
+\renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
+  \thispagestyle{chapterstart}% Use the custom page style for chapter start pages
+  \global\@topnum\z@
+  \@afterindentfalse
+  \secdef\@chapter\@schapter}
+\makeatother
+
+% Define a custom page style for chapter start pages
+\newpairofpagestyles{chapterstart}{
+  \ohead{} % Clear the header on the right
+  \ofoot[\pagemark]{\pagemark} % Only show the page number at the bottom right
+}
+
+\titleformat{\chapter}[block]
+  {\normalfont\large} % Format for chapter title
+  {\makebox[0pt][r]{\textcolor{chaptergrey}{\thechapter}\quad}} % Chapter number on the right
+  {0pt} % Space between chapter number and title
+  {\MakeUppercase} % Chapter title style
+  [\vspace{0.5em}\titlerule] % Add a horizontal line below the title
+\titlespacing*{\chapter}{0pt}{*3}{20pt} % Adjust space around chapter heading
+
+
+
+
+
+% Customize the section heading style
+\titleformat{\section}
+  {} % Use medium series (normal weight) for section title
+  {\makebox[0pt][r]{\textcolor{chaptergrey}{\thesection}\quad}} % Section number on the right
+  {0pt} % Space between section number and title
+  {\MakeUppercase} % Subsection title style to make it uppercase
+\titlespacing*{\section}{0pt}{*3}{20pt} % Adjust space around section heading
+
+
+% Customize the subsection heading style
+\titleformat{\subsection}
+  {} % Format for subsection title (normal font)
+  {\makebox[0pt][r]{\textcolor{chaptergrey}{\thesubsection}\quad}} % Subsection number on the right
+  {0pt} % Space between subsection number and title
+  {\MakeUppercase} % Subsection title style to make it uppercase
+\titlespacing*{\subsection}{0pt}{*3}{20pt} % Adjust space around subsection heading

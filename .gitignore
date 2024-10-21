@@ -1,0 +1,46 @@
+# Compiled LaTeX files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+main-blx.bib
+*.run.xml
+*.bcf
+
+# SyncTeX files
+*.synctex.gz
+
+# PDF files
+*.pdf
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Editor backups
+*~
+\#*\#
+
+# LaTeX auto-generated files
+*.fdb_latexmk
+*.fls
+
+# Miscellaneous
+.DS_Store

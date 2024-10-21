@@ -1,0 +1,27 @@
+% Input file for Table of Contents customization
+\input{layout/toc_formatting.tex}
+
+\chapter*{Inhaltsverzeichnis}
+\thispagestyle{empty}
+\pagestyle{empty} % Remove page numbers on all pages where the TOC appears
+
+% Redefine \tableofcontents to remove all vertical space completely
+\makeatletter
+\renewcommand{\tableofcontents}{%
+  \begingroup % Start a group to localize changes
+  \parskip=0pt % No additional space between paragraphs
+  \parindent=0pt % No indentation
+  \@starttoc{toc} % Start TOC without adding any title space
+  \endgroup % End the group
+}
+\makeatother
+
+% Manually add the custom title before the TOC
+\vspace{-\baselineskip} % Reduce vertical space
+{\hypersetup{hidelinks}
+\tableofcontents
+}
+
+% Ensure that the page numbering resumes normally for the next page
+\clearpage % Start a new page
+\pagestyle{scrheadings} % Reset to plain page style for subsequent pages
